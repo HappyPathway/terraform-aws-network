@@ -11,7 +11,7 @@ module "public-subnet1" {
   vpc_id            = "${module.vpc.vpc_id}"
   route_table_id    = "${module.vpc.route_table_id}"
   availability_zone = "${element(var.availability_zones, 0)}"
-  network_name      = "${var.network_name}"
+  network_name      = "${var.network_name}00"
   subnet_cidr       = "${var.public_subnet_cidr}"
 }
 
@@ -21,7 +21,7 @@ module "public-subnet2" {
   vpc_id            = "${module.vpc.vpc_id}"
   route_table_id    = "${module.vpc.route_table_id}"
   availability_zone = "${element(var.availability_zones, 1)}"
-  network_name      = "${var.network_name}"
+  network_name      = "${var.network_name}01"
   subnet_cidr       = "${var.public_subnet_cidr}"
 }
 
@@ -31,7 +31,7 @@ module "private-subnet1" {
   vpc_id            = "${module.vpc.vpc_id}"
   public_subnet_id  = "${module.public-subnet.subnet_id}"
   availability_zone = "${element(var.availability_zones, 0)}"
-  network_name      = "${var.network_name}"
+  network_name      = "${var.network_name}00"
   subnet_cidr       = "${var.private_subnet_cidr}"
 }
   
@@ -41,6 +41,6 @@ module "private-subnet2" {
   vpc_id            = "${module.vpc.vpc_id}"
   public_subnet_id  = "${module.public-subnet.subnet_id}"
   availability_zone = "${element(var.availability_zones, 1)}"
-  network_name      = "${var.network_name}"
+  network_name      = "${var.network_name}01"
   subnet_cidr       = "${var.private_subnet_cidr}"
 }

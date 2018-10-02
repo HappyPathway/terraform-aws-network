@@ -1,4 +1,4 @@
-output "admin_sg" {
+output "admin_sgs" {
   value       = "${module.private-subnet.admin_sg}"
   description = "Security Group ID for Admin SG"
 }
@@ -14,7 +14,7 @@ output "private_subnets" {
 }
 
 output "key_name" {
-  value = "${module.bastion.key_name}"
+  value = "${var.key_name}"
 }
 
 output "vpc_id" {
