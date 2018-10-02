@@ -32,7 +32,7 @@ module "private-subnet1" {
   public_subnet_id  = "${module.public-subnet1.subnet_id}"
   availability_zone = "${element(var.availability_zones, 0)}"
   network_name      = "${var.network_name}00"
-  subnet_cidr       = "${var.private_subnet_cidr}"
+  subnet_cidr       = "${element(var.private_subnet_cidrs, 0)}"
 }
   
 module "private-subnet2" {
@@ -42,5 +42,5 @@ module "private-subnet2" {
   public_subnet_id  = "${module.public-subnet2.subnet_id}"
   availability_zone = "${element(var.availability_zones, 1)}"
   network_name      = "${var.network_name}01"
-  subnet_cidr       = "${var.private_subnet_cidr}"
+  subnet_cidr       = "${element(var.private_subnet_cidrs, 1)}"
 }
