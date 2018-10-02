@@ -1,5 +1,5 @@
 output "admin_sgs" {
-  value       = "${module.private-subnet.admin_sg}"
+  value       = ["${module.private-subnet1.admin_sg}", "${module.private-subnet2.admin_sg}"]
   description = "Security Group ID for Admin SG"
 }
 
