@@ -1,8 +1,10 @@
 module "vpc" {
   source       = "github.com/HappyPathway/terraform-aws-vpc"
   version      = "1.0.1"
-  vpc_cidr     = "${var.vpc_cidr}"
-  network_name = "${var.network_name}"
+  cidr     = "${var.vpc_cidr}"
+  name = "${var.network_name}"
+  azs = ["${var.availability_zone}"]
+  enable_nat_gateway = true
 }
 
 module "public-subnet" {
