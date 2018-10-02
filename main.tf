@@ -11,7 +11,7 @@ module "public-subnet" {
   source            = "github.com/HappyPathway/terraform-aws-public-subnet"
   version           = "1.0.2"
   vpc_id            = "${module.vpc.vpc_id}"
-  route_table_id    = "${module.vpc.route_table_id}"
+  route_table_id    = "${module.vpc.public_route_table_ids}"
   availability_zone = "${var.availability_zone}"
   network_name      = "${var.network_name}"
   subnet_cidr       = "${var.public_subnet_cidr}"
