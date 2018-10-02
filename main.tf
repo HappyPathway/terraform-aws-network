@@ -5,6 +5,8 @@ module "vpc" {
   name = "${var.network_name}"
   azs = ["${var.availability_zone}"]
   enable_nat_gateway = true
+  public_subnets = ["${var.public_subnet_cidr}"]
+  private_subnets = ["${var.private_subnet_cidr}"]
 }
 
 module "public-subnet" {
