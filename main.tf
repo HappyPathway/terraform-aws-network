@@ -1,6 +1,6 @@
 module "vpc" {
   source       = "github.com/HappyPathway/terraform-aws-vpc"
-  version      = "1.0.1"
+  version      = "2.0.0"
   vpc_cidr     = "${var.vpc_cidr}"
   network_name = "${var.network_name}"
 }
