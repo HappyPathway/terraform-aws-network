@@ -5,7 +5,7 @@ module "vpc" {
   network_name = "${var.network_name}"
 }
 
-module "public-subnet" {
+module "public-subnet1" {
   source            = "github.com/HappyPathway/terraform-aws-public-subnet"
   version           = "1.0.2"
   vpc_id            = "${module.vpc.vpc_id}"
@@ -15,7 +15,7 @@ module "public-subnet" {
   subnet_cidr       = "${var.public_subnet_cidr}"
 }
 
-module "public-subnet" {
+module "public-subnet2" {
   source            = "github.com/HappyPathway/terraform-aws-public-subnet"
   version           = "1.0.2"
   vpc_id            = "${module.vpc.vpc_id}"
@@ -25,7 +25,7 @@ module "public-subnet" {
   subnet_cidr       = "${var.public_subnet_cidr}"
 }
 
-module "private-subnet" {
+module "private-subnet1" {
   source            = "github.com/HappyPathway/terraform-aws-private-subnet"
   version           = "1.0.2"
   vpc_id            = "${module.vpc.vpc_id}"
@@ -35,7 +35,7 @@ module "private-subnet" {
   subnet_cidr       = "${var.private_subnet_cidr}"
 }
   
-module "private-subnet" {
+module "private-subnet2" {
   source            = "github.com/HappyPathway/terraform-aws-private-subnet"
   version           = "1.0.2"
   vpc_id            = "${module.vpc.vpc_id}"
