@@ -19,7 +19,7 @@ module "private-subnet" {
   source  = "HappyPathway/private-subnet/aws"
   count = length(var.private_subnet_cidrs)
   vpc_id            = "${module.vpc.vpc_id}"
-  public_subnet_id  = "${module.public-subnet1.subnet_id}"
+  public_subnet_id  = "${element(module.public-subnet, count.index).subnet_id}"
   availability_zone = "${element(var.availability_zones, count.index)}"
   network_name      = "${var.network_name}-private00"
   subnet_cidr       = "${element(var.private_subnet_cidrs, count.index)}"
