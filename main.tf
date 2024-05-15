@@ -1,14 +1,12 @@
 #
 module "vpc" {
-  source  = "app.terraform.io/roknsound/vpc/aws"
-  version = "~> 2.0"
+  source  = "HappyPathway/vpc/aws"
   vpc_cidr     = "${var.vpc_cidr}"
   network_name = "${var.network_name}"
 }
 
 module "public-subnet1" {
-  source  = "app.terraform.io/roknsound/public-subnet/aws"
-  version = "~> 1.0"
+  source  = "HappyPathway/public-subnet/aws"
   vpc_id            = "${module.vpc.vpc_id}"
   route_table_id    = "${module.vpc.route_table_id}"
   availability_zone = "${element(var.availability_zones, 0)}"
@@ -17,8 +15,7 @@ module "public-subnet1" {
 }
 
 module "public-subnet2" {
-  source  = "app.terraform.io/roknsound/public-subnet/aws"
-  version = "~> 1.0"
+  source  = "HappyPathway/public-subnet/aws"
   vpc_id            = "${module.vpc.vpc_id}"
   route_table_id    = "${module.vpc.route_table_id}"
   availability_zone = "${element(var.availability_zones, 1)}"
@@ -27,8 +24,7 @@ module "public-subnet2" {
 }
 
 module "private-subnet1" {
-  source  = "app.terraform.io/roknsound/private-subnet/aws"
-  version = "~> 1.0"
+  source  = "HappyPathway/private-subnet/aws"
   vpc_id            = "${module.vpc.vpc_id}"
   public_subnet_id  = "${module.public-subnet1.subnet_id}"
   availability_zone = "${element(var.availability_zones, 0)}"
@@ -37,8 +33,7 @@ module "private-subnet1" {
 }
   
 module "private-subnet2" {
-  source  = "app.terraform.io/roknsound/private-subnet/aws"
-  version = "~> 1.0"
+  source  = "HappyPathway/private-subnet/aws"
   vpc_id            = "${module.vpc.vpc_id}"
   public_subnet_id  = "${module.public-subnet2.subnet_id}"
   availability_zone = "${element(var.availability_zones, 1)}"
