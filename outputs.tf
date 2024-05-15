@@ -1,15 +1,15 @@
 output "admin_sgs" {
-  value       = ["${module.private-subnet1.admin_sg}", "${module.private-subnet2.admin_sg}"]
+  value       = [for subnet in module.private-subnet : subnet.admin_sg]
   description = "Security Group ID for Admin SG"
 }
 
 output "public_subnets" {
-  value       = ["${module.public-subnet1.subnet_id}", "${module.public-subnet2.subnet_id}"]
+  value       = [for subnet in module.public-subnet: subnet.subnet_id]
   description = "Public Subnet ID"
 }
 
 output "private_subnets" {
-  value       = ["${module.private-subnet1.subnet_id}", "${module.private-subnet2.subnet_id}"]
+  value       = [for subnet in module.private-subnet: subnet.subnet_id]
   description = "Private Subnet ID"
 }
 
